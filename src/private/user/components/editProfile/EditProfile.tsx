@@ -82,7 +82,8 @@ export const EditProfile = () => {
       return;
     }
 
-    const endpoint = "http://localhost:3000/api/user/update-user";
+    const endpoint =
+      "https://vau-backend-technical-test.onrender.com/api/user/update-user";
     const options = {
       method: "PUT" as const,
       headers: {
@@ -136,7 +137,8 @@ export const EditProfile = () => {
       return;
     }
 
-    const endpoint = "http://localhost:3000/api/user/delete-user";
+    const endpoint =
+      "https://vau-backend-technical-test.onrender.com/api/user/delete-user";
     const options = {
       method: "POST" as const,
       headers: {

@@ -84,7 +84,8 @@ export const SignUpForm = () => {
       return;
     }
 
-    const endpoint = "http://localhost:3000/api/login/signUp";
+    const endpoint =
+      "https://vau-backend-technical-test.onrender.com/api/login/signUp";
     const options = {
       method: "POST" as const,
       headers: {

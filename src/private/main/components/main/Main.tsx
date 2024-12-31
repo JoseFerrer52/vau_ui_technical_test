@@ -26,7 +26,8 @@ export const Main = () => {
           return;
         }
 
-        const endpoint = "http://localhost:3000/api/main/get-all-users";
+        const endpoint =
+          "https://vau-backend-technical-test.onrender.com/api/main/get-all-users";
         const options = {
           method: "POST" as const,
           headers: {
