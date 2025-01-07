@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "../../../layout/components";
 import HttpHandler from "../../../../helpers/httpHandler";
 import { Modal } from "../../../modal/components";
-import "../style/editProfile.css";
+import editProfile from "../style/editProfile.module.css";
 import userImage from "../assets/usuario.png";
 
 const userNamePattern = /^[a-zA-Z0-9_]{1,20}$/;
@@ -81,7 +81,10 @@ export const EditProfile = () => {
       setLoading(false);
       return;
     }
-
+    const body: any = { userId }; // initialize with userId as it must be present
+    if (userName) body.userName = userName;
+    if (email) body.email = email;
+    if (password) body.password = password;
     const endpoint =
       "https://vau-backend-technical-test.onrender.com/api/user/update-user";
     const options = {
@@ -90,12 +93,7 @@ export const EditProfile = () => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: {
-        userId,
-        userName,
-        email,
-        password,
-      },
+      body: body,
     };
 
     try {
@@ -178,49 +176,66 @@ export const EditProfile = () => {
   return (
     <>
       <Header></Header>
-      <div className="container">
-        <section className="container">
-          <form className="form-container" onSubmit={handleSubmit}>
-            <div className="img-center">
-              <img src={userImage} alt="user" className="userImage" />
+      <div className={editProfile.container}>
+        <section className={editProfile.container}>
+          <form className={editProfile.formContainer} onSubmit={handleSubmit}>
+            <div className={editProfile.imgcenter}>
+              <img
+                src={userImage}
+                alt="user"
+                className={editProfile.userImage}
+              />
             </div>
             <h3>Edita tu perfil</h3>
-            <div className="box-input">
+            <div className={editProfile.boxInput}>
               <input
                 type="text"
                 placeholder="Nombre de usuario"
                 name="userName"
                 value={userName}
                 onChange={handleOnChange}
+                className={errors.userName && editProfile.errorInput}
               />
-              {errors.userName && <p className="error">{errors.userName}</p>}
+              {errors.userName && (
+                <p className={editProfile.errorTexts}>{errors.userName}</p>
+              )}
             </div>
-            <div className="box-input">
+            <div className={editProfile.boxInput}>
               <input
                 type="email"
                 placeholder="Correo electrónico"
                 name="email"
                 value={email}
                 onChange={handleOnChange}
+                className={errors.email && editProfile.errorInput}
               />
-              {errors.email && <p className="error">{errors.email}</p>}
+              {errors.email && (
+                <p className={editProfile.errorTexts}>{errors.email}</p>
+              )}
             </div>
-            <div className="box-input">
+            <div className={editProfile.boxInput}>
               <input
                 type="password"
                 placeholder="Contraseña*"
                 name="password"
                 value={password}
                 onChange={handleOnChange}
+                className={errors.password && editProfile.errorInput}
               />
-              {errors.password && <p className="error">{errors.password}</p>}
+              {errors.password && (
+                <p className={editProfile.errorTexts}>{errors.password}</p>
+              )}
             </div>
-            <div className="buttton-align">
-              <button className="button-send" type="submit" disabled={loading}>
+            <div className={editProfile.butttonAlign}>
+              <button
+                className={editProfile.buttonSend}
+                type="submit"
+                disabled={loading}
+              >
                 Enviar
               </button>
               <button
-                className="button-red"
+                className={editProfile.buttonRed}
                 onClick={(event) => {
                   event.preventDefault();
                   setModalOpen(true);
@@ -234,25 +249,28 @@ export const EditProfile = () => {
       </div>
       <Modal isOpen={modalOpen}>
         <div>
-          <section className="container">
+          <section className={editProfile.container}>
             <form
-              className="form-container"
+              className={editProfile.formContainer}
               onSubmit={handleSubmitToDeleteUser}
             >
               <h3>Introduce tu contraseña para eliminar tu cuenta</h3>
-              <div className="box-input">
+              <div className={editProfile.boxInput}>
                 <input
                   type="password"
                   placeholder="Contraseña*"
                   name="password"
                   value={password}
                   onChange={handleOnChange}
+                  className={errors.email && editProfile.errorInput}
                 />
-                {errors.password && <p className="error">{errors.password}</p>}
+                {errors.password && (
+                  <p className={editProfile.errorTexts}>{errors.password}</p>
+                )}
               </div>
-              <div className="buttton-align-modal">
+              <div className={editProfile.butttonAlignModal}>
                 <button
-                  className="button-send"
+                  className={editProfile.buttonSendModal}
                   onClick={(event) => {
                     event.preventDefault();
                     setModalOpen(false);
@@ -260,7 +278,11 @@ export const EditProfile = () => {
                 >
                   Cancelar
                 </button>
-                <button className="button-red" type="submit" disabled={loading}>
+                <button
+                  className={editProfile.buttonRedModal}
+                  type="submit"
+                  disabled={loading}
+                >
                   Eliminar cuenta
                 </button>
               </div>

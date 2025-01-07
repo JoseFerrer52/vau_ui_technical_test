@@ -1,8 +1,8 @@
 import { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../style/signUpForm.css";
-import { HeaderLogin } from "../../../layout/components";
+import signUpFormStyles from "../../style/signUpForm.module.css";
 import HttpHandler from "../../../../helpers/httpHandler";
+import { HeaderLogin } from "../../../layout/components";
 
 const userNamePattern = /^[a-zA-Z0-9_]{1,20}$/;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -122,61 +122,86 @@ export const SignUpForm = () => {
 
   return (
     <>
-      <HeaderLogin></HeaderLogin>
-      <div className="container">
-        <section className="container">
-          <form className="form-container" onSubmit={handleSubmit}>
-            <h3>Registrate y crea una nueva cuenta</h3>
-            <div className="box-input">
-              <input
-                type="text"
-                placeholder="Nombre de usuario*"
-                name="userName"
-                value={userName}
-                onChange={handleOnChange}
-              />
-              {errors.userName && <p className="error">{errors.userName}</p>}
-            </div>
-            <div className="box-input">
-              <input
-                type="email"
-                placeholder="Correo electrónico*"
-                name="email"
-                value={email}
-                onChange={handleOnChange}
-              />
-              {errors.email && <p className="error">{errors.email}</p>}
-            </div>
-            <div className="box-input">
-              <input
-                type="password"
-                placeholder="Contraseña*"
-                name="password"
-                value={password}
-                onChange={handleOnChange}
-              />
-              {errors.password && <p className="error">{errors.password}</p>}
-            </div>
-            <div className="box-input">
-              <input
-                type="password"
-                placeholder="Ingresa nuevamente tu contraseña*"
-                name="passwordConfirm"
-                value={passwordConfirm}
-                onChange={handleOnChange}
-              />
-              {errors.passwordConfirm && (
-                <p className="error">{errors.passwordConfirm}</p>
-              )}
-            </div>
-            <div className="buttton-align">
-              <button type="submit" disabled={loading}>
-                Registrarse
-              </button>
-            </div>
-          </form>
-        </section>
-      </div>
+      <HeaderLogin />
+      <section className={signUpFormStyles.container}>
+        <form
+          className={signUpFormStyles.formContainer}
+          onSubmit={handleSubmit}
+        >
+          <h3>Registrate y crea una nueva cuenta</h3>
+          <div className={signUpFormStyles.boxInput}>
+            <label htmlFor="userName">Nombre*</label>
+            <input
+              type="text"
+              placeholder="Ingresa tu nombre"
+              name="userName"
+              id="userName"
+              value={userName}
+              onChange={handleOnChange}
+              className={errors.userName && signUpFormStyles.errorInput}
+            />
+            {errors.userName && (
+              <p className={signUpFormStyles.errorTexts}>{errors.userName}</p>
+            )}
+          </div>
+          <div className={signUpFormStyles.boxInput}>
+            <label htmlFor="email">Correo electrónico*</label>
+            <input
+              type="email"
+              placeholder="Ingresa tu correo"
+              name="email"
+              id="email"
+              value={email}
+              onChange={handleOnChange}
+              className={errors.email && signUpFormStyles.errorInput}
+            />
+            {errors.email && (
+              <p className={signUpFormStyles.errorTexts}>{errors.email}</p>
+            )}
+          </div>
+          <div className={signUpFormStyles.boxInput}>
+            <label htmlFor="password">Contraseña*</label>
+            <input
+              type="password"
+              placeholder="Ingresa una contraseña"
+              name="password"
+              id="password"
+              value={password}
+              onChange={handleOnChange}
+              className={errors.password && signUpFormStyles.errorInput}
+            />
+            {errors.password && (
+              <p className={signUpFormStyles.errorTexts}>{errors.password}</p>
+            )}
+          </div>
+          <div className={signUpFormStyles.boxInput}>
+            <label htmlFor="passwordConfirm">
+              Ingresa nuevamente tu contraseña*
+            </label>
+            <input
+              type="password"
+              placeholder="Ingresa nuevamente tu contraseña*"
+              name="passwordConfirm"
+              value={passwordConfirm}
+              onChange={handleOnChange}
+              className={errors.passwordConfirm && signUpFormStyles.errorInput}
+            />
+            {errors.passwordConfirm && (
+              <p className={signUpFormStyles.errorTexts}>
+                {errors.passwordConfirm}
+              </p>
+            )}
+          </div>
+          <div className={signUpFormStyles.buttonAlign}>
+            <button type="submit" disabled={loading}>
+              Registrarse
+            </button>
+            <span className={signUpFormStyles.subtext}>
+              Los campos marcados con (*) son obligatorios
+            </span>
+          </div>
+        </form>
+      </section>
     </>
   );
 };

@@ -1,8 +1,9 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../style/signInForm.css";
-import { HeaderLogin } from "../../../layout/components";
+import signInFormStyles from "../style/signInForm.module.css";
 import HttpHandler from "../../../../helpers/httpHandler";
+import { FaLock, FaUser } from "react-icons/fa";
+import { HeaderLogin } from "../../../layout/components";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordPattern =
@@ -99,32 +100,48 @@ export const SignInForm = () => {
 
   return (
     <>
-      <HeaderLogin></HeaderLogin>
+      <HeaderLogin />
 
-      <div className="wrapper">
-        <form className="wrapper-container" onSubmit={handleSubmit}>
+      <div className={signInFormStyles.wrapper}>
+        <form
+          className={signInFormStyles.wrapperContainer}
+          onSubmit={handleSubmit}
+        >
           <h1>Iniciar Sesión</h1>
-          <div className="input-box">
+          <div className={signInFormStyles.inputBox}>
+            <label htmlFor="email">Correo electrónico</label>
             <input
-              placeholder="Correo electronico"
+              placeholder="Ingresa tu correo electrónico"
               type="text"
               name="email"
+              id="email"
               value={email}
               onChange={handleOnChange}
+              autoFocus
+              className={errors.email && signInFormStyles.errorInput}
             />
-            {errors.email && <p className="error">{errors.email}</p>}
+            <FaUser className={signInFormStyles.icon} />
+            {errors.email && (
+              <p className={signInFormStyles.errorTexts}>{errors.email}</p>
+            )}
           </div>
-          <div className="input-box">
+          <div className={signInFormStyles.inputBox}>
+            <label htmlFor="password">Contraseña</label>
             <input
-              placeholder="Contraseña"
+              placeholder="Ingresa tu contraseña"
               type="password"
               name="password"
+              id="password"
               value={password}
               onChange={handleOnChange}
+              className={errors.password && signInFormStyles.errorInput}
             />
-            {errors.password && <p className="error">{errors.password}</p>}
+            <FaLock className={signInFormStyles.icon} />
+            {errors.password && (
+              <p className={signInFormStyles.errorTexts}>{errors.password}</p>
+            )}
           </div>
-          <div className="remember-forgot">
+          <div className={signInFormStyles.rememberForgot}>
             <label>
               <input
                 type="Checkbox"
@@ -141,9 +158,9 @@ export const SignInForm = () => {
           <button type="submit" disabled={loading}>
             Iniciar Sesión
           </button>
-          <div className="register-link">
+          <div className={signInFormStyles.registerLink}>
             <p>
-              No tengo cuenta, <a href="/sing-up">registrarme</a>
+              No tengo cuenta, <a href="/sign-up">registrarme</a>
             </p>
           </div>
         </form>

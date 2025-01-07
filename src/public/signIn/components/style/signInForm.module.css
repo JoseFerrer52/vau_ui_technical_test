@@ -1,0 +1,147 @@
+.wrapper {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;
+  }
+  
+  .wrapperContainer {
+    width: 35vw;
+    padding: 30px 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    color: #333;
+    background: rgb(233, 249, 249);
+    background: linear-gradient(0deg, rgba(233, 249, 249, 1) 0%, rgba(255, 247, 247, 1) 100%);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .wrapper button {
+    font-family: sans-serif;
+    font-size: 15px;
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 45px;
+    background-color: #007bff;
+    color: #eee;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .wrapper button:hover {
+    /* background-color: transparent;
+      color: #fff; */
+    transform: scale(0.95, 0.95);
+  }
+  
+  .wrapper h1 {
+    font-size: 25px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  .wrapper .inputBox {
+    position: relative;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .inputBox .icon {
+    position: absolute;
+    right: 20px;
+    top: 33px;
+    font-size: 16px;
+  }
+  
+  .inputBox input {
+    width: 100%;
+    background-color: transparent;
+    margin: 0.25rem 0;
+    border: 2px solid rgba(0, 0, 0, 0.199);
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333;
+    padding: 10px 45px 10px 10px;
+  }
+  
+  .inputBox input::placeholder {
+    color: #635f5fec;
+  }
+  
+  .wrapper .registerLink {
+    display: flex;
+    justify-content: center;
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+  }
+  
+  .registerLink p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .registerLink p a:hover {
+    text-decoration: underline;
+  }
+  
+  .wrapper .rememberForgot {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.4px;
+    margin: 2rem 0 0.5rem;
+  }
+  
+  .rememberForgot a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .rememberForgot a:hover {
+    text-decoration: underline;
+  }
+  
+  .rememberForgot label input {
+    accent-color: #007bff;
+    margin-right: 4px;
+  }
+  
+  .inputBox input.errorInput {
+    border-color: #d30000;
+  }
+  
+  .errorTexts {
+    color: #d30000 !important;
+    font-size: 12px;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .wrapperContainer {
+      width: 60vw;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .wrapperContainer {
+      width: 90vw;
+      padding: 0px 1.5rem;
+    }
+  }
+  
+  @media screen and (max-width: 470px) {
+    .wrapper h1 {
+      font-size: 33px;
+    }
+  }
+  

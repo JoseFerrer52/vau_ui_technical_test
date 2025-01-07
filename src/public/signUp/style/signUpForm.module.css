@@ -1,0 +1,183 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 50px);
+  }
+  
+  .buttonAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+  }
+  
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35vw;
+    height: auto;
+    background: rgb(233, 249, 249);
+    background: linear-gradient(0deg, rgba(233, 249, 249, 1) 0%, rgba(255, 247, 247, 1) 100%);
+    /* border: 2px solid #7e7f80; */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #333;
+    border-radius: 10px;
+    padding: 0 40px;
+    /* background: rgba(0, 0, 0, .5); */
+    backdrop-filter: blur(50px);
+  }
+  
+  .formContainer .boxInput {
+    font-family: sans-serif;
+    position: relative;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .formContainer .nameBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: sans-serif;
+    margin: 0.5rem 0;
+  }
+  
+  .nameBox input {
+    font-family: sans-serif;
+    width: 49%;
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.199);
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333;
+    padding: 0.7rem;
+  }
+  
+  .nameBox input::placeholder {
+    font-size: 15px;
+    color: #635f5fec;
+  }
+  
+  .boxInput input {
+    font-family: sans-serif;
+    margin: 0.25rem 0;
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.199);
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333;
+    padding: 0.5rem 1rem;
+  }
+  
+  .boxInput label {
+    display: inline-block;
+    font-size: 14px;
+  }
+  
+  .boxInput input::placeholder {
+    font-size: 15px;
+    color: #635f5fec;
+  }
+  
+  .formContainer h3 {
+    font-size: 25px;
+    font-family: sans-serif;
+    color: #333;
+    text-align: center;
+    padding: 1.5rem 0;
+  }
+  .sectionText {
+    text-align: center;
+  }
+  
+  .container button {
+    font-family: sans-serif;
+    font-size: 15px;
+    margin: 1rem 0 0 0;
+    width: 100%;
+    height: 45px;
+    background-color: #007bff;
+    color: #eee;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .container button:hover {
+    transform: scale(0.95, 0.95);
+  }
+  .displayNone {
+    display: none;
+  }
+  h2 {
+    font-size: 36px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+    padding-top: 3rem;
+  }
+  
+  .subtext {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-top: 0.5rem;
+  }
+  
+  .boxInput input.errorInput {
+    border-color: #d30000;
+  }
+  
+  .errorTexts {
+    color: #d30000 !important;
+    font-size: 12px;
+  }
+  
+  @media screen and (max-width: 992px) {
+    .formContainer {
+      width: 50vw;
+    }
+  
+    .nameBox input::placeholder {
+      font-size: 12px;
+    }
+  
+    .boxInput input::placeholder {
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .formContainer {
+      width: 65vw;
+    }
+  }
+  
+  @media screen and (max-width: 470px) {
+    .formContainer {
+      width: 90vw;
+    }
+  
+    .nameBox input::placeholder {
+      font-size: 10px;
+    }
+    .boxInput input::placeholder {
+      font-size: 10px;
+    }
+    .formContainer h3 {
+      font-size: 1.1rem;
+    }
+    .container button {
+      font-size: 12px;
+    }
+  }
+  

@@ -1,3 +1,4 @@
+import Root from "./public/root/components/Root/Root";
 import { SignUpForm } from "./public/signUp/components";
 import { SignInForm } from "./public/signIn/components";
 import { Main } from "./private/main/components";
@@ -11,6 +12,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Root />}></Route>
           <Route path="/sign-in" element={<SignInForm />}></Route>
           <Route path="/sign-up" element={<SignUpForm />}></Route>
           <Route path="/home" element={<Main />}></Route>
