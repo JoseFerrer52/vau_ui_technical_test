@@ -1,50 +1,22 @@
-# React + TypeScript + Vite
+# listuser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Listuser displays the views of the listuser API. This tool was created as part of a technical test. The listuser application was specifically developed for the vau_ui_technical_test repository using the TypeScript programming language along with the React.js framework.
 
-Currently, two official plugins are available:
+The main objective of Listuser is to demonstrate an efficient and simple way of how the listuser-api works in real-time. Below are some key features of this application:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. User Creation: Allows adding new users with the necessary basic information.
+2. User Listing: Provides a complete list of all registered users.
+3. User Update: Facilitates the updating of existing user information.
+4. User Deletion: Allows deleting users from the list of records.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Installation
+1. clone the repository
+2. run the following command to install the dependencies: `npm install`
+3. apply this command to run the application in your local environment `npm run dev`
+4. Go to http://localhost:5173/ at your browser to see the app
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+# App running
+If you want to see a more realistic example of how ListUser works in real-time, visit the following link::
+1. [View the application](https://velvety-tulumba-8ba4fd.netlify.app)
